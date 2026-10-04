@@ -11,8 +11,8 @@ const ViewDetails = async ({params} :ViewDetailsProps) => {
   const {id} = await params
 
   const queryClient = new QueryClient()
-    const note = await queryClient.prefetchQuery({
-      queryKey: ['notes', id],
+   await queryClient.prefetchQuery({
+      queryKey: ['note', id],
       queryFn: () => fetchNoteById(id),
     })
 
